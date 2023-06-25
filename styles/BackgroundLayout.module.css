@@ -1,0 +1,6 @@
+.container{
+    height: 100vh;
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+}

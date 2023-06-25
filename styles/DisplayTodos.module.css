@@ -1,0 +1,81 @@
+.container{
+    width: 100%;
+}
+
+.container.light{
+    background-color: #FFFFFF;
+}
+
+.container.dark{
+    background-color: #25273D;
+}
+
+.todoContainer{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    min-height: 63px;
+    padding: 0px 24px;
+}
+
+.checkboxContainer{
+    position: relative;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.checkboxContainer.light{
+    border: 1px solid #E3E4F1;
+}
+
+.checkboxContainer.dark{
+    border: 1px solid #393A4B;
+}
+
+/* this is where i left off, i need to remove the circle border that is created with clip path*/
+.checkBox{
+    display: block;
+    width: 25px;
+    height: 25px;
+    clip-path: circle(50%);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.checkBox::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;    
+    height: 100%;
+}
+
+.checkBox.light::after{
+    background-color: white;
+}
+
+
+.checkBox.dark::after{
+    background-color: #25273D;
+}
+
+.checkMark{
+    display: none;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 25px;
+    height: auto;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.checkBox:checked ~ .checkMark{
+    display: block;
+}
+

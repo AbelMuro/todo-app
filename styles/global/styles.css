@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'josefin sans';
+    src: url('../../public/Fonts/JosefinSans-VariableFont_wght.ttf');
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    transition: all 0.2s linear;                     /* will create an animation for ALL the elements in project*/
+}
+
+body{
+    min-height: 100vh;
+}
+
+:root{
+    --font: 'josefin sans'; 
+}

@@ -1,0 +1,44 @@
+.container{
+    position: relative;
+    border: none;
+}
+
+.input{
+    width: 200px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    font-family: var(--font);
+    letter-spacing: -0.25px;
+}
+
+.input.light{
+    color: #393A4B;
+}
+
+.input.dark{
+    color: #C8CBE7;
+}
+
+.input.light::placeholder{
+    color: #9495A5;
+}
+
+.input.dark::placeholder{
+    color: #767992;
+}
+
+.input:focus{
+    outline: none;
+}
+
+.errorMessage{
+    display: none;
+    color: #ff0000;
+    font-size: 0.8125rem;
+    font-family: var(--font);
+    letter-spacing: -0.25px;
+    position: absolute;
+    bottom: -17px;
+}
