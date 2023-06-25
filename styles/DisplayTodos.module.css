@@ -32,7 +32,7 @@
     border: 1px solid #393A4B;
 }
 
-/* this is where i left off, i need to remove the circle border that is created with clip path*/
+/* this is where i left off, i need to make the checkbox into a radio button*/
 .checkBox{
     display: block;
     width: 25px;
