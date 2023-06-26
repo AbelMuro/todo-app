@@ -32,32 +32,35 @@
     border-bottom: 1px solid #393A4B;
 }
 
-.radioButtonContainer{
+.checkBoxContainer{
     position: relative;
     display: block;
     border-radius: 100%;
     overflow: hidden;
-    background: linear-gradient(90deg, rgba(85,221,255,1) 0%, rgba(192,88,243,1) 66%);
 }
 
-.radioButtonContainer.light{
-    border: 1px solid #E3E4F1;
+.checkBoxContainer.light{
+    border: 2px solid #E3E4F1;
 }
 
-.radioButtonContainer.dark{
-    border: 1px solid #393A4B;
+.checkBoxContainer.dark{
+    border: 2px solid #393A4B;
 }
 
-.radioButton{
+.checkBoxContainer:hover:not(.checkBoxContainer > .checkBox:checked){
+    border-color: transparent;
+    background: linear-gradient(90deg, rgba(85,221,255,1) 0%, rgba(192,88,243,1) 66%); 
+}
+
+.checkBox{
     display: block;
     width: 25px;
     height: 25px;
     cursor: pointer;
 }
 
-.radioButton::after {
+.checkBox::after {
     content: "";
-    display: block;
     position: absolute;
     top: 0;
     left: 0;
@@ -65,12 +68,12 @@
     height: 100%;
 }
 
-.radioButton.light::after{
+.checkBox.light::after{
     background-color: white;
 }
 
 
-.radioButton.dark::after{
+.checkBox.dark::after{
     background-color: #25273D;
 }
 
@@ -88,18 +91,8 @@
     cursor: pointer;
 }
 
-.radioButton:checked ~ .checkMark{
+.checkBox:checked ~ .checkMark{
     display: block;
-}
-
-.radioButton.light:checked ~{
-    text-decoration-line: line-through;
-    color: #D1D2DA;
-}
-
-.radioButton.dark:checked {
-    text-decoration-line: line-through;
-    color: #4D5067;
 }
 
 .todo{

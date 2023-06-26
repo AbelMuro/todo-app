@@ -21,6 +21,17 @@ export default function DisplayTodos () {
         checkBox.checked = false;
     }
 
+    const changeLabel = (e) => {
+        const isChecked = e.target.checked;
+        const label = e.target.parentElement.nextElementSibling;
+        label.style.textDecoration = isChecked ? 'line-through' : ''; 
+
+        if(isChecked) 
+            label.style.color = theme ? '#4D5067' : '#D1D2DA';
+        else
+            label.style.color = ''
+    }
+
     const changeTheme = (currentClass) => {
         if(theme)
             return [currentClass, styles.dark].join(' ');
@@ -41,8 +52,12 @@ export default function DisplayTodos () {
                 const radioButtonID = uuid();
                 return(
                     <div className={changeTheme(styles.todoContainer)} key={uuid()}>
-                        <fieldset className={changeTheme(styles.radioButtonContainer)}>
-                            <input type='radio' className={changeTheme(styles.radioButton)} id={radioButtonID}/>
+                        <fieldset className={changeTheme(styles.checkBoxContainer)}>
+                            <input type='checkbox' 
+                                className={changeTheme(styles.checkBox)} 
+                                id={radioButtonID} 
+                                onClick={changeLabel}
+                                autopostback="true"/>
                             <Image src={'/Icons/checked-mark.svg'} 
                                 width='0' height='0'
                                 alt='check mark'
