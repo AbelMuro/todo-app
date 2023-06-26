@@ -5,6 +5,7 @@ import styles from '../styles/DisplayTodos.module.css';
 
 
 //this is where i left off, i will need to implement a component that will filter out certain todos
+//also dont forget to style the labels when the radio button is checked
 export default function DisplayTodos () {
     const dispatch = useDispatch();
     const allTodos = useSelector(state => state.list);
