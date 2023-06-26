@@ -7,22 +7,9 @@ const Input = forwardRef(({theme}, ref) => {
     const errorMessageRef = useRef();
 
     const handleChange = (e) => {
-        e.target.setCustomValidity('');
-        errorMessageRef.current.style.display = '';
         setTodo(e.target.value)
     }
 
-    const handleBlur = (e) => {
-        const isValid = e.target.checkValidity();
-
-        if(!isValid)
-            errorMessageRef.current.style.display = 'block';
-    }
-
-    const handleInvalid = (e) => {
-        e.target.setCustomValidity(' ');
-        errorMessageRef.current.style.display = 'block';
-    }   
 
     useImperativeHandle(ref, () => ({
         get state(){
@@ -38,8 +25,6 @@ const Input = forwardRef(({theme}, ref) => {
             <input type='text' 
                 value={todo}
                 onChange={handleChange}
-                onBlur={handleBlur}
-                onInvalid={handleInvalid}
                 className={theme ? 
                     [styles.input, styles.dark].join(' ') : 
                     [styles.input, styles.light].join(' ')} 
