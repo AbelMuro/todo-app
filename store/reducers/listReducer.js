@@ -17,6 +17,15 @@ export default function listReducer(list = [], action) {
                 else
                     return true;
             })
+        case 'update todo': 
+            const task = action.todo.task;
+            const completed = action.todo.completed;      
+            return list.map((todo) => {
+                if(todo.task === task)
+                    return {task, completed}
+                else
+                    return todo;
+            })
         default:
             return list;
     }

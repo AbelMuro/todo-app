@@ -1,6 +1,6 @@
 import HeaderBar from '../components/Header/HeaderBar'
 import CreateTodo from '../components/NewTodo/CreateTodo';
-import DisplayTodos from '../components/DisplayTodos';
+import ShowTodos from '../components/DisplayTodos/ShowTodos';
 import AppLayout from '../components/AppLayout';
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
         <AppLayout>
             <HeaderBar/>
             <CreateTodo/>
-            <DisplayTodos/>
+            <ShowTodos/>
         </AppLayout>
     )
 }
