@@ -1,9 +1,9 @@
 import Input from './input';
-import {useRef} from 'react';
+import {useRef, memo} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import styles from '../../styles/NewTodo/CreateTodo.module.css';
 
-export default function CreateTodo() {  
+const CreateTodo = () => {  
     const dispatch = useDispatch();
     const theme = useSelector(state => state.theme);
     const containerRef = useRef();
@@ -30,3 +30,5 @@ export default function CreateTodo() {
         </form>
     )
 }
+
+export default memo(CreateTodo);

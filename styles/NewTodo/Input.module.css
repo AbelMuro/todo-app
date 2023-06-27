@@ -1,14 +1,9 @@
-.container{
-    position: relative;
-    border: none;
-}
-
 .input{
-    width: 200px;
+    width: 80%;
     height: 20px;
     border: none;
     background-color: transparent;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-family: var(--font);
     letter-spacing: -0.25px;
 }
@@ -33,12 +28,10 @@
     outline: none;
 }
 
-.errorMessage{
-    display: none;
-    color: #ff0000;
-    font-size: 0.8125rem;
-    font-family: var(--font);
-    letter-spacing: -0.25px;
-    position: absolute;
-    bottom: -17px;
+
+@media(max-width: 600px){
+    .input {
+        font-size: 0.75rem;
+        letter-spacing: -0.01044rem;
+    }
 }

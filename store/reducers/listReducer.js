@@ -26,6 +26,13 @@ export default function listReducer(list = [], action) {
                 else
                     return todo;
             })
+        case 'clear todos':
+            return list.filter((todo) => {
+                if(todo.completed)
+                    return false;
+                else
+                    return true;
+            }) 
         default:
             return list;
     }

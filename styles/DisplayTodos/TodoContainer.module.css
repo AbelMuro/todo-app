@@ -1,0 +1,40 @@
+.todoContainer{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    min-height: 63px;
+    padding: 20px 55px 20px 24px;
+}
+
+.todoContainer.light {
+    border-bottom: 1px solid #E3E4F1;
+}
+
+.todoContainer.dark {
+    border-bottom: 1px solid #393A4B;
+}
+
+.closeIcon {
+    width: 18px;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 24px;
+    cursor: pointer;
+}
+
+@media(max-width: 600px){
+    .todoContainer{
+        padding: 20px 48px 20px 20px;
+        min-height: 53px;
+        gap: 12px;
+    }
+
+    .closeIcon{
+        width: 12px;
+    }
+}

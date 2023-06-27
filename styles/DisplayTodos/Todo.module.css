@@ -14,7 +14,7 @@
     border: 2px solid #393A4B;
 }
 
-.checkBoxContainer:hover:not(.checkBoxContainer > .checkBox:checked){
+.checkBoxContainer:hover{
     border-color: transparent;
     background: linear-gradient(90deg, rgba(85,221,255,1) 0%, rgba(192,88,243,1) 66%); 
 }
@@ -66,6 +66,8 @@
     font-size: 1.125rem;
     font-family: var(--font);
     letter-spacing: -0.25px;
+    line-height: 20px;
+    word-break: break-all;
 }
 
 .todo.light{
@@ -74,4 +76,21 @@
 
 .todo.dark {
     color: #C8CBE7;
+}
+
+@media(max-width: 600px){
+    .checkBox {
+        width: 20px;
+        height: 20px;
+    }
+
+    .checkMark{
+        width: 20px;
+    }
+
+    .todo{
+        font-size: 0.75rem;
+        line-height: 15px;
+        letter-spacing: -0.167px;
+    }
 }

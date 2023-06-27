@@ -1,9 +1,11 @@
-import {useDispatch} from 'react-redux';
+import {memo} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import Image from 'next/image';
 import styles from '../../styles/Header/HeaderBar.module.css';
 
-export default function HeaderBar() {
+const HeaderBar = () =>{
     const dispatch = useDispatch();
+    const theme = useSelector(state => state.theme)
 
     const handleThemeSwitch = () => {
         dispatch({type: 'change theme'})
@@ -14,7 +16,7 @@ export default function HeaderBar() {
             <h1 className={styles.title}>
                 todo
             </h1>
-            <Image src={'/Icons/icon-moon.svg'} 
+            <Image src={theme ?'/Icons/icon-sun.svg' : '/Icons/icon-moon.svg'} 
                 width='0'
                 height='0'
                 alt='theme switch icon'
@@ -25,3 +27,5 @@ export default function HeaderBar() {
         </header>
     )
 }
+
+export default memo(HeaderBar)

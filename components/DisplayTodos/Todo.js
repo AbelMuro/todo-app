@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef, useId,forwardRef, useImperativeHandle} from 'react';
+import {useState, useEffect, useRef, useId, forwardRef, useImperativeHandle} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Image from 'next/image';
 import styles from '../../styles/DisplayTodos/Todo.module.css';
@@ -32,7 +32,8 @@ export default function Todo({task, completed}) {
             labelRef.current.style.textDecoration = '';
             labelRef.current.style.color = '';
         }
-    }, [checked])
+    }, [checked, theme])
+    
 
     useEffect(() => {
         if(skipFirstRender.current){
@@ -49,8 +50,7 @@ export default function Todo({task, completed}) {
                     id={checkBoxId}
                     checked={checked}
                     onChange={handleChecked}
-                    className={changeTheme(styles.checkBox)}  
-                    autopostback="true"/>
+                    className={changeTheme(styles.checkBox)}/>
                 <Image src={'/Icons/checked-mark.svg'} 
                     width='0' height='0'
                     alt='check mark'

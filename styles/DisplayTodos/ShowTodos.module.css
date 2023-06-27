@@ -14,35 +14,6 @@
     box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.50);
 }
 
-.todoContainer{
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    min-height: 63px;
-    padding: 0px 24px;
-}
-
-
-.todoContainer.light {
-    border-bottom: 1px solid #E3E4F1;
-}
-
-.todoContainer.dark {
-    border-bottom: 1px solid #393A4B;
-}
-
-.closeIcon {
-    width: 18px;
-    height: auto;
-    object-fit: contain;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    right: 24px;
-    cursor: pointer;
-}
 
 .filterbar{
     width: 100%;
@@ -95,5 +66,29 @@
 }
 
 .filterOption.dark:hover{
+    color: #E3E4F1;
+}
+
+.clearCompleted{
+    font-size: 0.875rem;
+    font-family: var(--font);
+    letter-spacing: -0.194px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.clearCompleted.light{
+    color: #9495A5;
+}
+
+.clearCompleted.light:hover{
+    color: #494C6B;
+}
+
+.clearCompleted.dark{
+    color:  #5B5E7E;
+}
+.clearCompleted.dark:hover{
     color: #E3E4F1;
 }
