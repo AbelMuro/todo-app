@@ -1,5 +1,6 @@
 .container{
-    height: 100vh;
+    border: 0.1px solid transparent;
+    min-height: 100vh;
     background-size: contain;
     background-position: top;
     background-repeat: no-repeat;

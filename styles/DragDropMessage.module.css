@@ -1,0 +1,21 @@
+.message{
+    text-align: center;
+    font-size: 0.875rem;
+    font-family: var(--font);
+    letter-spacing: -0.194px;
+    margin-top: 25px;
+}
+
+.message.light{
+    color: #9495A5;
+}
+
+.message.dark {
+    color: #5B5E7E;
+}
+
+@media(max-width: 600px) {
+    .message{
+        margin-top: 16px;
+    }    
+}

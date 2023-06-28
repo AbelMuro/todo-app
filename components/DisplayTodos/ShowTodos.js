@@ -1,4 +1,4 @@
-import {useState, useMemo, memo} from 'react';
+import {useMemo, memo} from 'react';
 import {v4 as uuid} from 'uuid';
 import TodoContainer from './TodoContainer';
 import FilterBar from './FilterBar';
@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import styles from '../../styles/DisplayTodos/ShowTodos.module.css';
 
 const ShowTodos = () => {
-    const [filter, setFilter] = useState('All');
+    const filter = useSelector(state => state.filter);
     const allTodos = useSelector(state => state.list);
     const theme = useSelector(state => state.theme);
 
@@ -26,7 +26,7 @@ const ShowTodos = () => {
             [styles.container, styles.dark].join(' ') : 
             [styles.container, styles.light].join(' ')}>
             {todosList}
-            <FilterBar filter={filter} setFilter={setFilter}/>
+            <FilterBar/>
         </section>
     )
 }

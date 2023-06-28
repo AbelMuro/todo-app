@@ -1,7 +1,12 @@
-import {useEffect} from 'react';
+import {useEffect, memo, useMemo} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from '../../styles/DisplayTodos/MobileFilterBar.module.css';
 
-export default function MobileFilterBar({theme, filter, handleFilter, clearCompleted}) {
+const MobileFilterBar = () => {
+    const theme = useSelector(state => state.theme);
+    const allTodos = useSelector(state => state.list);
+    const filter = useSelector(state => state.filter);
+    const dispatch = useDispatch();
 
     const changeTheme = (currentClass) => {
         if(theme)
@@ -9,6 +14,22 @@ export default function MobileFilterBar({theme, filter, handleFilter, clearCompl
         else
             return [currentClass, styles.light].join(' ');
     }
+
+    const handleFilter = (e) => {
+        const newFilter = e.target.getAttribute('data-filter');
+        dispatch({type: 'change filter', filter: newFilter})
+    }
+
+    const clearCompleted = () => {
+        dispatch({type: 'clear todos'});
+    }
+
+    const itemsLeft = useMemo(() => {
+        return allTodos.reduce((acc, items) => {
+               if(!items.completed)
+                   return acc + 1;
+       }, 0)
+}, [allTodos])
 
     useEffect(() => {
         const allFilters = document.querySelectorAll('.' + styles.filterOption);
@@ -26,7 +47,7 @@ export default function MobileFilterBar({theme, filter, handleFilter, clearCompl
         <footer className={changeTheme(styles.container)}>
             <div className={changeTheme(styles.clearContainer)}>
                 <p className={changeTheme(styles.itemsLeft)}>
-                    5 items left
+                    {itemsLeft ? `${itemsLeft} items left` : 'No items left'}
                 </p>
                 <button className={changeTheme(styles.clearCompletedButton)} onClick={clearCompleted}>
                     Clear Completed
@@ -46,3 +67,5 @@ export default function MobileFilterBar({theme, filter, handleFilter, clearCompl
         </footer>
     )
 }
+
+export default memo(MobileFilterBar);

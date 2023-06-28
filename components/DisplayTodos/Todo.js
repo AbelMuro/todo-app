@@ -5,7 +5,6 @@ import styles from '../../styles/DisplayTodos/Todo.module.css';
 
 export default function Todo({task, completed}) {
     const [checked, setChecked] = useState(completed);
-    const checkBoxId = useId();
     const dispatch = useDispatch();
     const labelRef = useRef();
     const skipFirstRender = useRef(true);
@@ -46,20 +45,16 @@ export default function Todo({task, completed}) {
     return (
         <>
             <fieldset className={changeTheme(styles.checkBoxContainer)}>
-                <input type='checkbox' 
-                    id={checkBoxId}
-                    checked={checked}
-                    onChange={handleChecked}
-                    className={changeTheme(styles.checkBox)}/>
-                <Image src={'/Icons/checked-mark.svg'} 
+                <div className={changeTheme(styles.checkBox)} onClick={handleChecked}></div>
+                {checked ? <Image src={'/Icons/checked-mark.svg'} 
                     width='0' height='0'
                     alt='check mark'
                     className={styles.checkMark}
                     priority
                     onClick={handleChecked}
-                    />                            
+                    /> : <></>}                            
             </fieldset>   
-            <label className={changeTheme(styles.todo)} ref={labelRef} htmlFor={checkBoxId}>
+            <label className={changeTheme(styles.todo)} ref={labelRef} onClick={handleChecked}>
                 {task}
             </label>    
         </>

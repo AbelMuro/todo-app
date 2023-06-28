@@ -1,17 +1,19 @@
-import {useEffect, memo} from 'react'
+import {useEffect, memo, useMemo} from 'react'
 import styles from '../../styles/DisplayTodos/FilterBar.module.css';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import MobileFilterBar from './MobileFilterBar';
 import { useSelector, useDispatch } from 'react-redux';
 
-const FilterBar = ({filter, setFilter}) => {
+const FilterBar = () => {
     const theme = useSelector(state => state.theme);
+    const allTodos = useSelector(state => state.list);
+    const filter = useSelector(state => state.filter);
     const mobile = useMediaQuery('(max-width: 600px)');
     const dispatch = useDispatch();
 
     const handleFilter = (e) => {        
         const newFilter = e.target.getAttribute('data-filter');
-        setFilter(newFilter);
+        dispatch({type: 'change filter', filter: newFilter});
     }
 
     const clearCompleted = () => {
@@ -24,6 +26,14 @@ const FilterBar = ({filter, setFilter}) => {
         else
             return [currentClass, styles.light].join(' ');
     }
+//this is where i left off
+    const itemsLeft = useMemo(() => {
+             return allTodos.reduce((acc, todo) => {
+                    if(!todo.completed)
+                        return acc + 1;
+            }, 0)
+    }, [allTodos])
+
 
     useEffect(() => {
         const allFilters = document.querySelectorAll('.' + styles.filterOption);
@@ -38,10 +48,11 @@ const FilterBar = ({filter, setFilter}) => {
     }, [filter, mobile])
 
 
-    return mobile ? <MobileFilterBar theme={theme} filter={filter} setFilter={setFilter} handleFilter={handleFilter} clearCompleted={clearCompleted}/> :
+    return mobile ? 
+        <MobileFilterBar /> :
         <footer className={changeTheme(styles.filterbar)}>
             <span className={changeTheme(styles.itemsLeft)}>
-                5 items left
+                {itemsLeft ? `${itemsLeft} items left` : 'No items left'}
             </span>
             <div className={styles.filterOptions}>
                 <button className={changeTheme(styles.filterOption)} data-filter='All' onClick={handleFilter}>

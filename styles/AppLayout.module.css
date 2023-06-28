@@ -1,8 +1,5 @@
 .container{
-    position: absolute;
-    top: 70px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 70px auto 50px auto;
     width: 540px;
     display: flex;
     flex-direction: column;

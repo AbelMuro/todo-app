@@ -1,4 +1,4 @@
-import {memo} from 'react';
+import {memo, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Image from 'next/image';
 import styles from '../../styles/Header/HeaderBar.module.css';
@@ -10,6 +10,11 @@ const HeaderBar = () =>{
     const handleThemeSwitch = () => {
         dispatch({type: 'change theme'})
     }
+
+    useEffect(() => {
+        const isDarkTheme = window.matchMedia('(prefers-color-scheme: dark)');
+        dispatch({type: 'change theme', theme: isDarkTheme.matches});
+    }, [])
 
     return(
         <header className={styles.container}>
