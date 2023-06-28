@@ -8,10 +8,12 @@
 }
 
 .todoContainer.light {
+    background-color: #FFFFFF;
     border-bottom: 1px solid #E3E4F1;
 }
 
 .todoContainer.dark {
+    background-color: #25273D;
     border-bottom: 1px solid #393A4B;
 }
 

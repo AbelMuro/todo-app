@@ -1,0 +1,107 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.clearContainer{
+    width: 100%;
+    height: 51px;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.clearContainer.light{
+    background-color: white;
+}
+
+.clearContainer.dark {
+    background-color: #25273D;
+}
+
+.itemsLeft{
+    font-size: 0.75rem;
+    font-family: var(--font);
+    letter-spacing: -0.167px;
+}
+
+.itemsLeft.light {
+    color: #9495A5
+}
+
+.itemsLeft.dark {
+    color: #5B5E7E
+}
+
+.clearCompletedButton{
+    text-align: right;
+    font-size: 0.75rem;
+    font-family: var(--font);
+    letter-spacing: -0.167px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.clearCompletedButton.light{
+    color: #9495A5;
+}
+
+.clearCompletedButton.light:hover{
+    color: #494C6B;
+}
+
+.clearCompletedButton.dark{
+    color: #5B5E7E;
+}
+
+.clearCompletedButton.dark:hover{
+    color: #E3E4F1;
+}
+
+.filterOptions{
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 19px;
+    border-radius: 5px;
+}
+
+.filterOptions.light{
+    background-color: white;
+}
+
+.filterOptions.dark {
+    background-color: #25273D;
+}
+
+.filterOption{
+    font-size: 0.875rem;
+    font-family: var(--font);
+    font-weight: 700;
+    letter-spacing: -0.194px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.filterOption.light {
+    color: #9495A5;
+}
+
+.filterOption.light:hover{
+    color: #494C6B;
+}
+
+.filterOption.dark {
+    color: #5B5E7E;
+}
+
+.filterOption.dark:hover{
+    color: #E3E4F1;
+}
