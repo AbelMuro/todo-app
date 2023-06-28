@@ -5,11 +5,9 @@
 }
 
 .container.light{
-    background-color: #FAFAFA;
     box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.50);          /* this is the problem*/
 }
 
 .container.dark{
-    background-color: #171823;
     box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.50);
 }
