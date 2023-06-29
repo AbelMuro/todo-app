@@ -33,6 +33,15 @@ export default function listReducer(list = [], action) {
                 else
                     return true;
             }) 
+        case 'switch todos': 
+            const dragTodoIndex = action.dragTodoIndex;
+            const dropTodoIndex = action.dropTodoIndex;
+            const tempArray = [...list];
+            let temp = tempArray[dragTodoIndex];
+            tempArray[dragTodoIndex] = tempArray[dropTodoIndex];
+            tempArray[dropTodoIndex] = temp;
+            return tempArray;
+
         default:
             return list;
     }

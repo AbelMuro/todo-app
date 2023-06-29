@@ -9,45 +9,26 @@ const ShowTodos = () => {
     const filter = useSelector(state => state.filter);
     const allTodos = useSelector(state => state.list);
     const theme = useSelector(state => state.theme);
-    const [currentDragItem, setCurrentDragItem] = useState('');
-
-    const handleDrag = (e) => {
-        setCurrentDragItem(e.currentTarget.id);
-    }
-    //this is the problem. handleDrop forms a closure with the previous state
-    const handleDrop = (e) => {
-
-        const dragBox = allTodos.find(todo => todo.id === dragItem)
-        const dropBox = allTodos.find(todo => todo.id === e.currentTarget.id);
-
-        console.log(dragBox, dropBox);
-    }
 
     const todosList = useMemo(() => {
-        return allTodos.map(({task, completed, id}) => {
+        return allTodos.map(({task, completed}, i) => {
             if(filter === 'Active' && completed === false)
                 return <TodoContainer 
                     task={task} 
                     completed={completed}
-                    id={id}
-                    handleDrag={handleDrag}
-                    handleDrop={handleDrop}
-                     key={uuid()}/>
+                    index={i}
+                    key={uuid()}/>
             else if(filter === 'Completed' && completed === true)
                 return <TodoContainer 
                     task={task} 
                     completed={completed}
-                    id={id}
-                    handleDrag={handleDrag}
-                    handleDrop={handleDrop}
+                    index={i}
                     key={uuid()}/>
             else if(filter === 'All')
                 return <TodoContainer 
                     task={task} 
                     completed={completed}
-                    id={id}
-                    handleDrag={handleDrag}
-                    handleDrop={handleDrop}
+                    index={i}
                     key={uuid()}/>
         })
     }, [allTodos, filter])
