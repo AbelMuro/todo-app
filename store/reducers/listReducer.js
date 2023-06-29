@@ -8,7 +8,7 @@ export default function listReducer(list = [], action) {
                 else
                     return true;
             })
-            return [action.todo, ...filteredList];
+            return [...filteredList, action.todo, ];
         case 'remove todo': 
             const taskToRemove = action.todo
             return list.filter((todo) => {

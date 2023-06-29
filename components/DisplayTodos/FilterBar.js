@@ -26,14 +26,15 @@ const FilterBar = () => {
         else
             return [currentClass, styles.light].join(' ');
     }
-//this is where i left off
-    const itemsLeft = useMemo(() => {
-             return allTodos.reduce((acc, todo) => {
-                    if(!todo.completed)
-                        return acc + 1;
-            }, 0)
-    }, [allTodos])
 
+    const itemsLeft = useMemo(() => {
+        return allTodos.reduce((acc, todo) => {
+            if(!todo.completed)
+                return acc + 1;
+                else
+                    return acc;
+        }, 0)
+    }, [allTodos])
 
     useEffect(() => {
         const allFilters = document.querySelectorAll('.' + styles.filterOption);

@@ -25,9 +25,11 @@ const MobileFilterBar = () => {
     }
 
     const itemsLeft = useMemo(() => {
-        return allTodos.reduce((acc, items) => {
-               if(!items.completed)
+        return allTodos.reduce((acc, todo) => {
+               if (!todo.completed)
                    return acc + 1;
+                else
+                    return acc;
        }, 0)
 }, [allTodos])
 
