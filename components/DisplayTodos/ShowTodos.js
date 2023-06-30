@@ -11,23 +11,26 @@ const ShowTodos = () => {
     const theme = useSelector(state => state.theme);
 
     const todosList = useMemo(() => {
-        return allTodos.map(({task, completed}, i) => {
+        return allTodos.map(({task, completed, id}, i) => {
             if(filter === 'Active' && completed === false)
                 return <TodoContainer 
                     task={task} 
                     completed={completed}
+                    todoId={id}
                     index={i}
                     key={uuid()}/>
             else if(filter === 'Completed' && completed === true)
                 return <TodoContainer 
                     task={task} 
                     completed={completed}
+                    todoId={id}
                     index={i}
                     key={uuid()}/>
             else if(filter === 'All')
                 return <TodoContainer 
                     task={task} 
                     completed={completed}
+                    todoId={id}
                     index={i}
                     key={uuid()}/>
         })
