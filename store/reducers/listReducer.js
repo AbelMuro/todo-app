@@ -22,7 +22,7 @@ export default function listReducer(list = [], action) {
             const completed = action.todo.completed;      
             return list.map((todo) => {
                 if(todo.task === task)
-                    return {task, completed}
+                    return {...todo, completed: completed}
                 else
                     return todo;
             })

@@ -41,7 +41,7 @@ const ShowTodos = () => {
             [styles.container, styles.dark].join(' ') : 
             [styles.container, styles.light].join(' ')}>             
                 {todosList}                 
-                <FilterBar/>
+                {todosList.length ? <FilterBar/> : <></>}
         </section>
     )
 }
