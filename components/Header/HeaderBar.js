@@ -13,7 +13,7 @@ const HeaderBar = () =>{
 
     useEffect(() => {
         const isDarkTheme = window.matchMedia('(prefers-color-scheme: dark)');
-        dispatch({type: 'change theme', theme: isDarkTheme.matches});
+        dispatch({type: 'initial theme', theme: isDarkTheme.matches});
     }, [])
 
     return(
