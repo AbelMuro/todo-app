@@ -10,6 +10,7 @@ export default function Home() {
 
     return(
         <AppLayout>
+            <PreLoadImages/>
             <HeaderBar/>
             <CreateTodo/>
             <DndProvider backend={HTML5Backend}>   
