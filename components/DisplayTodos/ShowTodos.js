@@ -18,21 +18,21 @@ const ShowTodos = () => {
                     completed={completed}
                     todoId={id}
                     index={i}
-                    key={uuid()}/>
+                    key={id}/>
             else if(filter === 'Completed' && completed === true)
                 return <TodoContainer 
                     task={task} 
                     completed={completed}
                     todoId={id}
                     index={i}
-                    key={uuid()}/>
+                    key={id}/>
             else if(filter === 'All')
                 return <TodoContainer 
                     task={task} 
                     completed={completed}
                     todoId={id}
                     index={i}
-                    key={uuid()}/>
+                    key={id}/>
         })
     }, [allTodos, filter])
 
